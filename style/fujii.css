@@ -1,0 +1,192 @@
+/* 全体の設定 */
+body.fujii-page-gold {
+    background-color: #ffffff; /* ★白基調 */
+    /* スターダストのようなきらめきテクスチャ（外部から取得、任意） */
+    background-image: url('https://www.transparenttextures.com/patterns/dust.png'); 
+    color: #444; /* 文字は少し柔らかい黒 */
+    margin: 0;
+    font-family: 'Noto Serif JP', serif;
+    overflow-x: hidden;
+}
+
+.fujii-container-gold {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    background-color: rgba(255, 255, 255, 0.95); /* ほんのり透ける白 */
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.05); /* ほんのりゴールドの影 */
+    position: relative;
+}
+
+
+.agency-header-gold {
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 80px;
+    letter-spacing: 0.4em;
+    text-align: center;
+}
+
+.agency-name-gold {
+    font-size: 0.7rem;
+    color: #999;
+    font-weight: 400;
+}
+
+/* レイアウト */
+.profile-layout-gold {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+/* 名前と写真セクション（左） */
+.name-and-photo-gold {
+    flex: 0 0 auto;
+    width: 400px; /* 写真の幅 */
+    position: relative;
+}
+
+/* 宣材写真fujii.jpgのラッパー */
+.photo-wrapper-gold {
+    position: relative;
+    border: 1px solid #d4af37; /* ゴールドの枠線 */
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 30px;
+    transition: 0.8s;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.fujii-image-gold {
+    width: 100%;
+    display: block;
+    filter: sepia(10%); /* ほんのりゴールド調に */
+    transition: 0.8s;
+}
+
+/* ホバー時に写真が光る（スターダスト効果） */
+.photo-wrapper-gold:hover {
+    border-color: #fef1a2; /* より明るい金に */
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+}
+
+.photo-wrapper-gold:hover .fujii-image-gold {
+    filter: sepia(0%);
+    transform: scale(1.02);
+}
+
+/* 名前セクション */
+.fujii-name-en-gold {
+    font-size: 4.5rem;
+    margin: 0;
+    letter-spacing: 0.2em;
+    color: #d4af37; /* ゴールド */
+    font-weight: 700;
+}
+
+.fujii-name-jp-gold {
+    font-size: 1.3rem;
+    margin-top: -15px;
+    color: #333;
+    letter-spacing: 0.6em;
+    font-weight: 400;
+}
+
+.stardust-name-border-gold {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(212,175,55,0.1), #d4af37, #fef1a2, #d4af37, rgba(212,175,55,0.1));
+    margin: 40px 0;
+}
+
+/* ステータスセクション（右） */
+.info-section-gold {
+    flex: 1 1 auto;
+    padding-top: 10px;
+}
+
+/* スペック表 */
+.spec-table-gold {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 60px;
+}
+
+.spec-table-gold th {
+    text-align: left;
+    width: 150px;
+    font-size: 0.7rem;
+    color: #888;
+    padding: 20px 0;
+    border-bottom: 1px solid #eaeaea;
+    letter-spacing: 0.1em;
+}
+
+.spec-table-gold td {
+    font-size: 0.95rem;
+    color: #d4af37; /* ここもゴールド */
+    font-weight: 700;
+    padding: 20px 0;
+    border-bottom: 1px solid #eaeaea;
+    letter-spacing: 0.1em;
+}
+
+/* 経歴 */
+.biography-gold h3 {
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    color: #888;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.biography-gold p {
+    font-size: 1rem;
+    line-height: 2.2;
+    color: #555;
+}
+
+/* 戻るボタン */
+.back-nav-gold {
+    margin-top: 80px;
+}
+
+.btn-back-gold {
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    border: 1px solid #d4af37;
+    padding: 18px 40px;
+    transition: 0.3s;
+    background-color: transparent;
+    display: inline-block;
+}
+
+.btn-back-gold:hover {
+    color: #fff;
+    border-color: #d4af37;
+    background-color: #d4af37; /* ゴールドに */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+/* スマホ対応 */
+@media (max-width: 900px) {
+    .fujii-container-gold {
+        padding: 40px 10px;
+    }
+    .profile-layout-gold {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+    .name-and-photo-gold {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+    .spec-table-gold {
+        max-width: 500px;
+        margin: 0 auto 60px auto;
+    }
+}
