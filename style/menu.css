@@ -7,12 +7,18 @@
     font-family: 'Kosugi Maru', sans-serif; /* 丸文字系があれば最高 */
 }
 
+.fairy-header {
+    text-align: center; /* ★隅っこから救出！ */
+    padding: 0 20px;    /* 左右に少しだけ隙間を作る */
+}
+
 /* タイトル：キラキラピンク */
 .sparkle-title {
     font-size: 2.2rem;
     color: #ff6699;
     text-shadow: 2px 2px 0px #fff, 4px 4px 0px rgba(255, 105, 180, 0.2);
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .fairy-intro {
@@ -36,9 +42,11 @@
     align-items: center;
     background: #ffffff;
     border: 3px solid #ffeef4;
-    padding: 18px;
+    padding: 20px;
     text-decoration: none;
-    border-radius: 30px; /* カドを丸くして豆っぽい形に */
+    width: 100%;     
+    box-sizing: border-box;
+    border-radius: 30px; 
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
 }
@@ -62,7 +70,7 @@
 
 .fairy-label {
     display: block;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 900;
     color: #ff6699;
 }
@@ -79,5 +87,23 @@
     color: #ffb3cc;
     text-decoration: none;
     font-size: 0.8rem;
+    border-bottom: 1px dashed #ffb3cc;
+}
+
+/* フッター（一番下の部分）を中央に寄せる */
+footer, .menu-footer, .contact-section {
+    width: 90%;            /* 画面の端から端までを自分の領域にする */
+    max-width: 450px;        /* ★カード（fairy-navigation）の最大幅と同じ数字にする */
+    margin: 30px auto 0;     /* 「auto」でこのエリア自体を画面中央へ */
+    text-align: left;        /* ★中の文字を左に寄せる */
+    padding-left: 10px;
+}
+
+/* リンクボタンやテキストも念押しで中央へ */
+.back-link-fairy {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: #ffb3cc;
+    text-decoration: none;
     border-bottom: 1px dashed #ffb3cc;
 }

@@ -235,3 +235,43 @@ h1 {
 .note-link:hover {
     background-color: #f3e5f5;
 }
+
+/* アイスタイム用のひんやりスタイル */
+.ice-title {
+    color: #1976d2; /* 冷却をイメージした青 */
+}
+
+.ice-memo {
+    margin-top: 10px;
+    padding: 12px;
+    background: linear-gradient(to right, #e3f2fd, #ffffff); /* 水色から白へのグラデ */
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #444;
+    border: 1px solid #bbdefb;
+    display: inline-block; /* 中身の幅に合わせる */
+}
+
+
+.hell-zone {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #ffffff; /* ★背景を白に */
+    color: #0056b3;           /* ★濃いめの冷たい青（読みやすさ重視） */
+    border: 2px solid #b3e5fc; /* ★薄い水色の枠線 */
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: inset 0 0 10px rgba(0, 150, 255, 0.05); /* ほんのり冷気 */
+    text-align: left;
+    position: relative;
+}
+
+/* 凍りついた空気感を出すアクセント */
+.hell-zone::before {
+    content: "❄️";
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 1.2rem;
+}

@@ -26,27 +26,24 @@ h1 {
 
 /* 語録の並び：少しランダムに */
 .goroku-grid {
-    display: flex;
-    flex-wrap: wrap;
+   display: grid;
+    grid-template-columns: 1fr 1fr; /* 均等に2分割 */
     gap: 20px;
-    justify-content: center;
+    justify-items: center;
+    align-items: start;
 }
 
 /* 各メッセージカードの基本設定 */
 .quote-card {
     background: #fff;
     padding: 25px;
-    border-radius: 15px; /* カドを丸く */
-    box-shadow: 3px 3px 10px rgba(0,0,0,0.1); /* やわらかい影 */
-    width: 100%;
-    max-width: 350px; /* カードの最大幅 */
-    position: relative; /* ピン配置用 */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    
-    /* カードごとに少し角度をつける（ランダム感） */
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+    width: 100%; /* グリッドの幅に合わせる */
+    box-sizing: border-box; /* パディングを含めた幅計算 */
+    position: relative;
     transform: rotate(var(--rotation, -1deg));
 }
-
 /* カードにホバーした時：少し浮き上がる */
 .quote-card:hover {
     transform: rotate(0deg) translateY(-5px);
@@ -172,4 +169,212 @@ h1 {
 
 .contact-btn:hover {
     background-color: #6d4c41;
+}
+
+/* LINE風コンテナ（以前のコードに追加/修正） */
+.line-container {
+    background-color: #7494c0; 
+    padding: 20px 10px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.line-row {
+    display: flex;
+    width: 100%;
+}
+
+.line-row.left { justify-content: flex-start; }
+.line-row.right { justify-content: flex-end; }
+
+/* 徹也側の白い吹き出し */
+.line-bubble {
+    background: #fff;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    position: relative;
+    color: #333;
+    max-width: 220px;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* 「ろくろやめてね」側の緑の吹き出し */
+.line-bubble-green {
+    background: #85e249;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    position: relative;
+    color: #000;
+    max-width: 200px;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* 吹き出しのしっぽ（さらにLINEっぽく） */
+.left .line-bubble::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -8px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 12px solid #fff;
+}
+
+.right .line-bubble-green::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: -8px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 12px solid #85e249;
+}
+/* 「やめてね」カード用の色変え（バリエーション） */
+.quote-card:nth-child(4) {
+    --rotation: -1deg;
+    background-color: #e4d7dc; /* 薄いピンク */
+    border: 2px solid #f06292;
+}
+.quote-card:nth-child(4) .quote-text {
+    color: #402630;
+}
+
+/* 徹也スペシャルカード全体のレイアウト */
+.special-tetsuya {
+    --rotation: 2deg;
+    background: none !important; /* 元のカード背景を消す */
+    border: none !important;     /* 元の枠を消す */
+    box-shadow: none !important; /* 元の影を消す */
+    display: flex;               /* 写真と吹き出しを横に並べる */
+    align-items: flex-end;       /* 下揃えにすることで「ろくろ」感アップ */
+    max-width: 500px;            /* 横に広がるので少し広めに確保 */
+    gap: 15px;
+    overflow: visible;
+}
+/* 「ろくろ」カードだけ、画鋲（赤い丸）を非表示にする */
+.quote-card.special-tetsuya::before {
+    display: none;
+}
+
+/* 1. 写真部分の設定 */
+.photo-area {
+    flex-shrink: 0;              /* 写真が潰れないように */
+}
+
+.tetsuya-img {
+    width: 100px;                /* 写真のサイズを調整 */
+    height: 100px;
+    border-radius: 50%;          /* 丸く切り抜くとかわいい */
+    border: 3px solid #d3770d;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+.wide-card {
+    grid-column: 1 / 3; /* 1列目から3列目の手前まで（＝2枚分）占有 */
+    max-width: 100%;    /* 幅の制限を解除 */
+    --rotation: 0.5deg; /* 横長なので角度は控えめに */
+}
+
+/* ろくろカード（special-tetsuya）も形が特殊なので2枚分使いたい場合 */
+/* もし「ろくろ」も1枚に収まりきらなければ、下を追加してください */
+.special-tetsuya {
+    grid-column: 1 / 3;
+    max-width: 100%;
+}
+
+/* スマホで見るときは1列に戻す（重要！） */
+@media (max-width: 600px) {
+    .goroku-grid {
+        grid-template-columns: 1fr;
+    }
+    .wide-card, .special-tetsuya {
+        grid-column: 1 / 2;
+    }
+}
+
+/* 2. 吹き出し部分 */
+.speech-bubble {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 2px solid #d3770d;
+    flex-grow: 1;                /* 残りの幅を埋める */
+}
+
+/* 3. 吹き出しの「しっぽ」 (左側に変更) */
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    left: -15px;                 /* 吹き出しの左側へ */
+    bottom: 20px;                /* 下から少し浮かせた位置 */
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 15px solid #fff; /* 右向きの三角形（背景色と同じ白） */
+    z-index: 11;
+}
+
+/* 枠線の色に合わせたしっぽの縁取り（必要であれば） */
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    left: -18px;
+    bottom: 19px;
+    width: 0;
+    height: 0;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-right: 16px solid #d3770d; /* 枠線と同じ色 */
+    z-index: 10;
+}
+
+/* モバイル対応：画面が狭いときは縦並びにする */
+@media (max-width: 480px) {
+    .special-tetsuya {
+        flex-direction: column;
+        align-items: center;
+    }
+    .speech-bubble::after, .speech-bubble::before {
+        display: none; /* スマホではしっぽを隠すか調整 */
+    }
+}
+
+/* 「やめてね」カード用の色変え */
+.quote-card:nth-child(4) {
+    --rotation: -1deg;
+    background-color: #fce4ec; /* 薄いピンク */
+    border: 2px solid #f06292;
+}
+
+/* 「やめてね」カードの画鋲を金色に */
+.quote-card:nth-child(4)::before {
+    background: radial-gradient(#FFD700 40%, #FF8C00 80%);
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.quote-card:nth-child(4) .quote-text {
+    color: #c2185b;
+}
+
+/* 用法テキストの設定 */
+.usage {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px dashed #f06292;
+    font-size: 0.85rem;
+    color: #c2185b;
+    line-height: 1.5;
 }
