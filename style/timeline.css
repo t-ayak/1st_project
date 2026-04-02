@@ -1,0 +1,234 @@
+/* 全体設定：フォントや背景 */
+body {
+    background-color: #faf8f5; /* 少し生成り色っぽい白 */
+    /* 小さなドット模様を薄く敷く */
+    background-image: radial-gradient(#dcdcdc 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* タイトルを豪華にする */
+.main-title {
+    font-size: 3rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 0;
+    letter-spacing: 5px; /* 文字の間隔を広げて高級感を出す */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(to right, #e772cb, #766fd7); /* 文字をグラデーションに */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/* メイン写真セクション */
+.hero-section {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    border-radius: 20px;
+    border: 8px solid #fff; /* 白枠をつけてポラロイド感を強調 */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fdfdfd;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    font-style: italic;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* --- 年表（Timeline）のスタイル --- */
+
+.timeline {
+    margin-top: 40px;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+/* 左側の日付列 */
+.time-label {
+    flex: 0 0 120px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #888;
+    text-align: right;
+    padding-top: 5px;
+}
+
+/* 右側の内容ボックス */
+.content {
+    flex: 1;
+    padding: 20px;
+    border-radius: 15px;
+    background: #ffffff;
+    border-left: 5px solid #ddd; /* デフォルトの線 */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.03);
+}
+
+.content h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+/* --- 学年ごとの色分け --- */
+
+.baby .content {
+    border-left-color: #ffc1e3; /* ベビーピンク */
+    background-color: #fff9fc;
+}
+
+.elementary .content {
+    border-left-color: #ffeb3b; /* たんぽぽイエロー */
+    background-color: #fffdf0;
+}
+
+.junior-high .content {
+    border-left-color: #81d4fa;
+    background-color: #f1faff;
+}
+
+.current .content {
+    border-left-color: #d1c4e9; /* スカイブルー */
+    background-color: #f8f4ff;
+}
+
+/* main-event 全体の特別な装飾 */
+.main-event .content {
+    position: relative;
+    border: 2px solid #ffdef2; /* 優しいピンクの枠 */
+    background: linear-gradient(135deg, #ffffff 0%, #fff0f5 100%);
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.4); /* ピンクの後光 */
+    overflow: hidden; /* キラキラがはみ出さないように */
+}
+
+/* タイトルの前に動くキラキラ絵文字 */
+.main-event h3::before {
+    content: "✨";
+    display: inline-block;
+    animation: twink 1.5s infinite alternate;
+    margin-right: 8px;
+}
+
+/* 文字を少しだけ豪華に */
+.main-event h3 {
+    color: #d81b60;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+
+/* --- 写真を右側にする魔法 --- */
+
+.with-photo {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.text-part {
+    flex: 2; /* テキストを広く */
+}
+
+.photo-part {
+    flex: 0 0 120px; /* ← 幅を120pxに固定（お好みで100〜150の間で調整） */
+    text-align: right; /* 右端に寄せる */
+}
+
+.timeline-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 3px solid white; /* ポラロイド風 */
+}
+
+/* スマホで見るときは写真を下に回す（レスポンシブ） */
+@media (max-width: 600px) {
+    .with-photo {
+        flex-direction: column;
+    }
+    .timeline-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .time-label {
+        text-align: left;
+    }
+}
+
+/* 文章の下に写真を入れるパターン（横長用） */
+.below-photo .full-photo-part {
+    margin-top: 15px; /* 文章との隙間 */
+    text-align: center;
+    overflow: hidden; /* はみ出た部分を隠す */
+    border-radius: 10px;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.below-photo .full-photo-part img {
+    width: 100%;
+    max-width: 500px;
+    height: 180px;    /* ★ここで「高さ」を固定（好きな数字に変えてね） */
+    object-fit: cover; /* ★重要：縦横比を保ったまま、いい感じに中央で切り抜く */
+    display: block;
+    margin: 0 auto;
+}
+
+/* timeline.css に追加すると便利 */
+
+/* 語録への言及など、補足情報のスタイル */
+.note-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 2px 8px;
+    background-color: #fff;
+    border: 1px solid #d1c4e9;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    color: #5e35b1;
+    text-decoration: none;
+}
+
+.note-link:hover {
+    background-color: #f3e5f5;
+}
