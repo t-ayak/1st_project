@@ -4,23 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dear さがっぱ＝シッダッタ</title>
-    <link rel="stylesheet" href="style.css"></head>
     
-<body>
-    <div class = "comtainer">
-        <h1 class="title"> ななほ専用サイトへようこそ </h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style/entry.css">
+</head>
 
-        <div class = "photo-area">
-            <img src = "images/2shot.jpg" alt = "俺等のツーショ" class = "main-photo">
-        </div>
+<body class="horror-body">
+    <div class="container horror-page">
+        
+        <header class="horror-header">
+            <h1 class="horror-title">WELCOME</h1>
+            <p class="warning-msg">⚠️ 本人以外、閲覧禁止 ⚠️</p>
+        </header>
 
-        <div class = "question-box">
-            <p>【本人確認】</p>
-            <p>私が自転車で転倒したのはどこの駐車場？</p>
+        <div class="photo-area horror-photo">
+            <img src="images/2shot.jpg" alt="俺等のツーショ" class="main-photo">
+            <div class="photo-overlay"></div> </div>
 
-            <p class = "hint">💡ヒント：チェーンの名前を半角英字で入力してね</p>
+        <div class="question-box ritual-box">
+            <h2 class="ritual-label">【 ユアソウルの確認 】</h2>
+            <p class="question-text">私が自転車で転倒したのは<br>どこの駐車場？</p>
 
-            <button onclick="startQuiz()" class="enter-button">解答を入力する</button>
+            <p class="hint">💡 チェーン名を半角英字で</p>
+
+            <button onclick="startQuiz()" class="enter-button blood-button">解答入力</button>
         </div>
 
     </div>

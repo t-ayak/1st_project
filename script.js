@@ -7,7 +7,7 @@ function startQuiz(){
 
     if (answer === "familymart") {
         alert("正解！忘れて欲しいまであるけどね。");
-        window.location.href = "memories.html";
+        window.location.href = "menu.html";
     
     } else if (answer === "blackthomasism") {
         alert("ポストカード届いてよかった！隠しページに行きマース！");

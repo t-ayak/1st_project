@@ -1,0 +1,83 @@
+/* メルヘンページ全体の背景（パステルピンクのグラデ） */
+.fairy-page {
+    background: linear-gradient(135deg, #fff5f8 0%, #f0f7ff 100%);
+    color: #ff8fb1;
+    padding: 40px 20px;
+    min-height: 100vh;
+    font-family: 'Kosugi Maru', sans-serif; /* 丸文字系があれば最高 */
+}
+
+/* タイトル：キラキラピンク */
+.sparkle-title {
+    font-size: 2.2rem;
+    color: #ff6699;
+    text-shadow: 2px 2px 0px #fff, 4px 4px 0px rgba(255, 105, 180, 0.2);
+    margin-bottom: 10px;
+}
+
+.fairy-intro {
+    font-size: 0.9rem;
+    color: #ffa4c1;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+/* ナビゲーション：ふわふわカード */
+.fairy-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.fairy-card {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 3px solid #ffeef4;
+    padding: 18px;
+    text-decoration: none;
+    border-radius: 30px; /* カドを丸くして豆っぽい形に */
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+}
+
+.fairy-card:hover {
+    transform: scale(1.05) rotate(1deg); /* ぷるんと動く感じ */
+    background: #fff9fb;
+    border-color: #ffc1d6;
+}
+
+/* アイコン */
+.fairy-icon {
+    font-size: 2.2rem;
+    margin-right: 15px;
+}
+
+/* テキスト */
+.fairy-text {
+    text-align: left;
+}
+
+.fairy-label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #ff6699;
+}
+
+.fairy-desc {
+    display: block;
+    font-size: 0.7rem;
+    color: #ffb3cc;
+}
+
+.back-link-fairy {
+    display: inline-block;
+    margin-top: 40px;
+    color: #ffb3cc;
+    text-decoration: none;
+    font-size: 0.8rem;
+    border-bottom: 1px dashed #ffb3cc;
+}

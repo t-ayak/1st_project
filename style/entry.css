@@ -1,0 +1,122 @@
+/* 全体の設定：真っ暗で不穏な空気 */
+.horror-body {
+    background-color: #000; /* 真っ黒 */
+    background-image: 
+        radial-gradient(circle at center, #1a0000 0%, #000 70%), /* 中央からじわっと赤い */
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXElEQVR42u3bQQrCMBBAUXP/E8/jKdy6UFBwU2qLwX9D5o2xOfu+7/u+76/r9Xq9Xv8X'); /* 砂嵐ノイズ */
+    color: #e0e0e0;
+    font-family: 'Sawarabi Mincho', serif; /* 基本は不気味な明朝 */
+    overflow-x: hidden;
+}
+
+.horror-page {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* タイトル：おどろおどろしいドロドロ文字 */
+.horror-title {
+    font-family: 'Creepster', cursive; /* ホラーフォント */
+    font-size: 5rem;
+    color: #b71c1c; /* 血のような赤 */
+    text-shadow: 
+        0 0 5px #b71c1c,
+        0 0 10px #ff0000,
+        3px 3px 2px rgba(0,0,0,0.8);
+    margin-bottom: 0;
+    letter-spacing: 5px;
+    animation: flicker 4s infinite; /* チカチカさせる */
+}
+
+.warning-msg {
+    font-size: 1rem;
+    color: #ff9100; /* 警告色 */
+    margin-top: 5px;
+    margin-bottom: 40px;
+}
+
+/* 心霊写真風の加工 */
+.horror-photo {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+.horror-photo img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    filter: grayscale(100%) contrast(150%) sepia(50%) blur(0.5px); /* モノクロ・高コントラスト・ぼかし */
+    border: 2px solid #333;
+    box-shadow: 0 0 30px rgba(183, 28, 28, 0.4);
+}
+
+/* 写真の上にノイズを重ねる隠し味 */
+.photo-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXElEQVR42u3bQQrCMBBAUXP/E8/jKdy6UFBwU2qLwX9D5o2xOfu+7/u+76/r9Xq9Xv8X'); /* 砂嵐 */
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* クイズボックス：古びた石碑風 */
+.ritual-box {
+    background: rgba(10, 10, 10, 0.9);
+    padding: 35px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    box-shadow: inset 0 0 20px rgba(0,0,0,1);
+}
+
+.ritual-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* 質問文：血文字風 */
+.question-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.6;
+    color: #c62828; /* 暗い赤 */
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.1);
+    margin-bottom: 25px;
+}
+
+.hint {
+    font-size: 0.85rem;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+/* 解答ボタン：血に染まった契約ボタン */
+.blood-button {
+    background: linear-gradient(to bottom, #b71c1c, #800000);
+    color: #e0e0e0;
+    border: 1px solid #ff0000;
+    padding: 18px 45px;
+    font-size: 1.2rem;
+    font-family: 'Sawarabi Mincho', serif;
+    font-weight: bold;
+    border-radius: 5px; /* 角丸をなくして古臭く */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(183, 28, 28, 0.5);
+    transition: 0.2s;
+}
+
+.blood-button:hover {
+    transform: scale(1.02);
+    background: #e61919;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+}
+
+/* アニメーション：タイトルをチカチカさせる */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0.3; text-shadow: none; }
+}
